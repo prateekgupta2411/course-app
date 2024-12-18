@@ -1,12 +1,23 @@
+import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { Button } from "reactstrap";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
+  const btnHandler = () => {
+    // toast("this is my first message");
+    toast.success("Done", {
+      position: "top-center",
+    });
+  };
   return (
     <div>
-      <h1>This is my react JS Application</h1>
-      <p>I am currectly learning ReactJs</p>
-      <p>I am Prateek Gupta</p>
+      <ToastContainer />
+      <h1>This is bootstrap Components</h1>
+      <Button color="primary" size="sm" outline onClick={btnHandler}>
+        First React Button
+      </Button>
     </div>
   );
 }
