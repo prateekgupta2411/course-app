@@ -1,21 +1,27 @@
-// import React from "react";
+import React from "react";
+import { Container } from "reactstrap";
 
-// // The Header component accepts three props: name, title, and description.
-// // It displays a card-like structure with a title, name, and description, styled with inline CSS.
-// function Header({ name, title, discription }) {
-//   return (
-//     <div
-//       style={{
-//         background: "yellow", // Sets the background color of the card
-//         padding: 20, // Adds padding inside the card
-//         width: 400, // Fixes the card width
-//       }}
-//     >
-//       <h1>{title}</h1> {/* Displays the title passed as a prop */}
-//       <h1>{name}</h1> {/* Displays the name passed as a prop */}
-//       <p>{discription}</p> {/* Displays the description passed as a prop */}
-//     </div>
-//   );
-// }
+const Home = () => {
+  return (
+    <div>
+      <br />
+      <Container
+        style={{
+          backgroundColor: "#f8f9fa",
+          padding: "20px",
+          borderRadius: "5px",
+        }}
+      >
+        <h3 className="display-2">GeeksforGeeks!</h3>
+        <hr />
+        <p className="display-3">
+          A Computer Science portal for geeks. It contains well-written, well-
+          thought, and well-explained computer science and programming articles
+          and quizzes.
+        </p>
+      </Container>
+    </div>
+  );
+};
 
-// export default Header; // Exports the Header component to be used in other files
+export default Home;

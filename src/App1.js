@@ -2,8 +2,8 @@
 // import "./App.css"; // Imports the CSS file for styling
 // import Header from "./components/Header"; // Imports the Header component
 
-// // The App component is the main entry point of the React application.
-// // It renders multiple Header components with different data and other content.
+// The App component is the main entry point of the React application.
+// It renders multiple Header components with different data and other content.
 // function App() {
 //   return (
 //     <div>
