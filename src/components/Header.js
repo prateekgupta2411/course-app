@@ -1,27 +1,16 @@
 import React from "react";
-import { Container } from "reactstrap";
+import { Card, CardBody } from "reactstrap";
 
-const Home = () => {
+const Header = ({ name, title }) => {
   return (
     <div>
-      <br />
-      <Container
-        style={{
-          backgroundColor: "#f8f9fa",
-          padding: "20px",
-          borderRadius: "5px",
-        }}
-      >
-        <h3 className="display-2">GeeksforGeeks!</h3>
-        <hr />
-        <p className="display-3">
-          A Computer Science portal for geeks. It contains well-written, well-
-          thought, and well-explained computer science and programming articles
-          and quizzes.
-        </p>
-      </Container>
+      <Card className="my-2 bg-warning">
+        <CardBody>
+          <h1 className="text-center my-2">Welcome to Courses Application</h1>
+        </CardBody>
+      </Card>
     </div>
   );
 };
 
-export default Home;
+export default Header;

@@ -2,25 +2,25 @@ import React from "react";
 import {
   Card,
   CardBody,
-  CardTitle,
-  CardText,
   CardSubtitle,
+  CardText,
   Button,
-  CardFooter,
   Container,
 } from "reactstrap";
 
-const Course = () => {
-  <card>
-    <CardBody>
-      <CardSubtitle>Java Course</CardSubtitle>
-      <cardText>It is a Java Course For Beginners</cardText>
-      <Container className="text-center">
-        <Button>Delete</Button>
-        <Button>Update</Button>
-      </Container>
-    </CardBody>
-  </card>;
+const Course = ({ course }) => {
+  return (
+    <Card className="text-center">
+      <CardBody>
+        <CardSubtitle tag="h5">{course.title}</CardSubtitle>
+        <CardText>{course.description}</CardText>
+        <Container className="text-center">
+          <Button color="danger">Delete</Button>
+          <Button color="warning ml-3">Update</Button>
+        </Container>
+      </CardBody>
+    </Card>
+  );
 };
 
 export default Course;
