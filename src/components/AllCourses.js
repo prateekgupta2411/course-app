@@ -1,45 +1,57 @@
 import React, { useState, useEffect } from "react";
 import Course from "./Course";
-import base_url from "../api/bootapi";
+import base_url from "./../api/bootapi";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 const Allcourse = () => {
+  const [courses, setCourses] = useState([]);
+  const updateCourses = (id) => {
+    setCourses(courses.filter((c) => c.id != id));
+  };
+  // Set the document title
   useEffect(() => {
     document.title = "All Courses";
   }, []);
 
-  // function to call server
+  // Function to fetch courses from the server
   const getAllCoursesFromServer = () => {
-    axios.get("/courses").then(
+    axios.get(`${base_url}/courses`).then(
       (response) => {
-        // success
-        console.log(response);
+        // Success: Update the state with fetched data
+        console.log(response.data);
+        toast.success("courses has been loaded successfully", {
+          position: "bottom-center",
+        });
+        setCourses(response.data);
       },
       (error) => {
-        // for error
-        console.error(error);
+        // Error: Log the error
+        console.error("Error fetching courses:", error);
+        toast.success("server down", {
+          position: "bottom-center",
+        });
       }
     );
   };
-  // call server function when component mounts
+
+  // Fetch courses when the component mounts
   useEffect(() => {
     getAllCoursesFromServer();
   }, []);
 
-  const [courses, setCourses] = useState([
-    { title: "React Course", description: "This is React course" },
-    { title: "Node.js Course", description: "This is Node.js course" },
-    { title: "Python Course", description: "This is Python course" },
-    { title: "Java Course", description: "This is java course" },
-  ]);
-
   return (
     <div>
-      <h1> All Courses </h1>
-      <p> List of courses are as follows</p>
+      <h1>All Courses</h1>
+      <p>List of courses are as follows:</p>
 
-      {courses.length > 0
-        ? courses.map((item) => <Course key={item.id} course={item} />)
-        : "no courses"}
+      {courses.length > 0 ? (
+        courses.map((item) => (
+          <Course key={item.id} course={item} update={updateCourses} />
+        ))
+      ) : (
+        <p>No courses available.</p>
+      )}
     </div>
   );
 };
